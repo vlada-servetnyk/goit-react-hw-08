@@ -1,0 +1,33 @@
+.contact_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.contact {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: start;
+    color: black;
+}
+.contact_item {
+    display: flex;
+}
+.contact_svg {
+    padding-right: 10px;
+    width: 25px;
+    height: 25px;
+}
+.contact_btn {
+    display: flex;
+    color: black;
+    background-color: rgb(214, 213, 213);
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    height: 35px;
+}
+.contact_btn:hover,
+.contact_btn:focus {
+    border-color: black;
+}

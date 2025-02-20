@@ -1,0 +1,19 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+  /* border: 2px solid rgb(86, 84, 84);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+}
+.app_title {
+  color: black;
+  text-align: start;
+}

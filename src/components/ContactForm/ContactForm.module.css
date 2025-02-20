@@ -1,0 +1,45 @@
+.form_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+}
+
+.form_label {
+    color: black;
+}
+
+.form_input {
+    width: 100%;
+    outline: none;
+}
+
+.form_input:focus {
+    border-color: #563cea;
+}
+
+.btn_add {
+    display: flex;
+    justify-content: center;
+    color: black;
+    background-color: rgb(214, 213, 213);
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    height: 35px;
+    max-width: 150px;
+    margin: auto;
+}
+.btn_add:focus,
+.btn_add:hover {
+    border-color: black;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
