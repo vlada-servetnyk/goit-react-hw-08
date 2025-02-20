@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 import s from './ContactList.module.css'
 import { useEffect } from "react";
-import { fetchData } from "../../redux/contactsOps";
+import { fetchContacts } from "../../redux/contactsOps";
 
 const ContactList = () => {
     const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const ContactList = () => {
     const error = useSelector(state => state.contacts.error);
 
     useEffect(() => {
-        dispatch(fetchData());
+        dispatch(fetchContacts());
     }, [dispatch])
 
 
