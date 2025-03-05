@@ -1,6 +1,9 @@
 .form {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+    color: black;
 }
 
 .label {
@@ -11,4 +14,9 @@
 
 .input {
     width: 300px;
+}
+
+.btn {
+    padding: 5px;
+    max-width: 100px;
 }

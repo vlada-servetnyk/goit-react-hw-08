@@ -4,9 +4,9 @@ const ContactsPage = () => {
   return (
   <div className='app'>
      <h1 className='app_title'>Phonebook</h1>
-        {/* <ContactForm />
+        <ContactForm />
         <SearchBox />
-        <ContactList />  */}
+        <ContactList /> 
   </div>
   )
 }
