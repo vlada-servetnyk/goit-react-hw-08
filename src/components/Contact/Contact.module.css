@@ -20,14 +20,20 @@
 }
 .contact_btn {
     display: flex;
+    justify-content: center;
     color: black;
     background-color: rgb(214, 213, 213);
     border: 2px solid gray;
     border-radius: 5px;
     padding: 5px;
-    height: 35px;
+    width: 50px;
 }
 .contact_btn:hover,
 .contact_btn:focus {
     border-color: black;
+}
+
+.wrapper_btn {
+    display: flex;
+    gap: 10px;
 }

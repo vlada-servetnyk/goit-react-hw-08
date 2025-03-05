@@ -5,7 +5,7 @@ export const api = axios.create({
   baseURL: 'https://connections-api.goit.global',
 });
 
-const setAuthHeader = token => {
+export const setAuthHeader = token => {
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
@@ -45,7 +45,7 @@ export const logoutThunk = createAsyncThunk('auth/logout', async (_, thunkAPI) =
 export const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
   try {
     const savedToken = thunkAPI.getState().auth.token;
-    if (savedToken === null) {
+    if (!savedToken) {
       return thunkAPI.rejectWithValue('Token is not exist!');
     }
 

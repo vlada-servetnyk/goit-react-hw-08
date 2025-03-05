@@ -1,12 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import {api, setAuthHeader} from '../auth/operations'
 
-// axios.defaults.baseURL = 'https://67b6eaad2bddacfb270ccff1.mockapi.io';
-axios.defaults.baseURL = 'https://connections-api.goit.global'
 
 export const fetchContacts = createAsyncThunk('/contacts/fetchAll', async (_, thunkAPI) => {
     try {
-        const { data } = await axios.get(`/contacts`);
+        const token = thunkAPI.getState().auth.token;
+        if (token) {
+            setAuthHeader(token);
+        }
+        const { data } = await api.get(`/contacts`);
         return data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
@@ -16,7 +18,11 @@ export const fetchContacts = createAsyncThunk('/contacts/fetchAll', async (_, th
 
 export const addContact = createAsyncThunk('contacts/addContact', async (body, thunkAPI) => {
     try {
-        const { data } = await axios.post(`/contacts`, body);
+        const token = thunkAPI.getState().auth.token;
+        if (token) {
+            setAuthHeader(token);
+        }
+        const { data } = await api.post(`/contacts`, body);
         return data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
@@ -25,9 +31,29 @@ export const addContact = createAsyncThunk('contacts/addContact', async (body, t
 
 export const deleteContact = createAsyncThunk('contacts/deleteContact', async (id, thunkAPI) => {
     try {
-        await axios.delete(`/contacts/${id}`);
+        const token = thunkAPI.getState().auth.token;
+        if (token) {
+            setAuthHeader(token);
+        }
+        await api.delete(`/contacts/${id}`);
         return id;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
     }
 });
+
+export const editContact = createAsyncThunk(
+  'contacts/editContact',
+  async ({ id, name, number }, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.token;
+      if (token) {
+        setAuthHeader(token);
+      }
+      const { data } = await api.patch(`/contacts/${id}`, { name, number });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

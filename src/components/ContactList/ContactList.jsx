@@ -23,7 +23,7 @@ const ContactList = () => {
                             <Contact
                                 id={item.id}
                                 name={item.name}
-                                phone={item.number}
+                                number={item.number}
                             />
                         </li>
                     )
