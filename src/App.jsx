@@ -2,16 +2,16 @@ import './App.css'
 import { Routes, Route } from "react-router-dom";
 import Layout from './components/Layout/Layout';
 import HomePage from './pages/HomePage/HomePage';
-import RegistrationForm from './pages/RegistrationPage/RegistrationForm';
-import LoginForm from './pages/LoginPage/LoginForm';
 import ContactsPage from './pages/ContactsPage/ContactsPage';
 import NotFound from './pages/NotFound/NotFound';
-import PrivateRoute from './config/routes/PrivateRoute/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from './redux/auth/operations';
-import RestrictedRoute from './config/routes/RestrictedRoute/RestrictedRoute';
 import { selectIsRefreshing } from './redux/auth/selectors';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RestrictedRoute from './components/RestrictedRoute/RestrictedRoute';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
           path="/register" 
           element={
             <RestrictedRoute redirectTo="/contacts">
-              <RegistrationForm />
+              <RegistrationPage />
             </RestrictedRoute>
           }
         />
@@ -42,7 +42,7 @@ function App() {
           path="/login" 
           element={
             <RestrictedRoute redirectTo="/contacts">
-              <LoginForm />
+              <LoginPage />
             </RestrictedRoute>
           }
         />
